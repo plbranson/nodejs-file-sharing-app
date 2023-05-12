@@ -1,0 +1,51 @@
+<!--
+    Copyright 2023 Patrick L. Branson
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+        
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (locals.fileLink != null) { %>
+    <div style="margin-bottom: 1rem">
+      Your file is upload
+      <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+    </div>
+    <% } %>
+    <form
+      action="/upload"
+      method="post"
+      style="
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: auto 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+      "
+      enctype="multipart/form-data"
+    >
+      <label for="file">File:</label>
+      <input type="file" id="file" name="file" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+      <button style="grid-column: span 2" type="submit">Share</button>
+    </form>
+  </body>
+</html>
